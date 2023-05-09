@@ -10,9 +10,12 @@ class JogoDeForca:
         else:
             print("Erro: ", r.status_code)
     
-    def novo_jogo(self, vidas=5):
+    def novo_jogo(self, vidas=5, palavra=None):
         self.vidas = vidas
-        self.palavra = random.choice(self.content)
+        if palavra == None:
+            self.palavra = random.choice(self.content)
+        else:
+            self.palavra = palavra
         return len(self.palavra)
 
     def tentar_letra(self, letra):
@@ -33,4 +36,6 @@ class JogoDeForca:
             else:
                 self.vidas = 0
                 return False
+            
+            
             

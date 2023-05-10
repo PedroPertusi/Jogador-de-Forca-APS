@@ -21,17 +21,13 @@ O segundo recurso utilizado é se basear no conceito de eliminação por poncent
 ## Ordenação de Caracter
 O algoritmo de ordenação de caracteres funciona da seguinte maneira: conta a quantidade de repetições de um caracter para uma lista de palavras selecionadas, em seguida calcula a probalidade de ocorrência: `quantidade / total_de_letras`, repetindo esse processo para cada letra do alfabeto. Essa é uma etapa inicial do algoritmo de Huffman, que em seguida, criaria uma árvore para atribuir códigos binários de tamanho variável a cada símbolo presente, resultando em compressão dos caracteres. Entretanto, essa parte final não foi necessária para nosso problema.
 
-## Resultado Encontrado
-
-## 
-
-
-# Avaliando o Jogador
+# Resultado Encontrado
+## Avaliando o Jogador
 Nosso jogador apresentou uma média de acertos de 92%, esse resultado foi obtido em cima de 1000 jogos aleatórios aonde houve 920 acertos e 80 erros, sendo assim nosso jogador apresenta um bom percentual de acertos. Todavia, são os erros que chamam a atenção, visto que as palavras aonde o jogador não consegue acertar ele nunca consiguirá, ou seja, existe um grupo de palavras que o nosso jogador nunca será capaz de acertar, independente do número de tentativas. 
 
 Buscando entender os erros, devemos considerar como nosso jogador opera, ele sempre considera as informações atuais dadas para ele, sendo elas o tamnho da palavra, as letras chutadas e dentre elas as posições das corretas, e levando em conta essas informações ele é capaz de reduzir o montante de palavras para que todas presentes cumpram esses requisitos, e então olhando para esse novo grupo de palavras ele encontra a letra com maior probabilidade e então escolhe-a. Por tanto, se fomos pensar em erros, então as palavras erradas são palavras que mesmo quando reduzimos esse grupo de palavras sempre á uma ou mais letras com probabilidades maiores do que pelo menos uma contida em nossa palavra, e por conta do jogo contar com apenas 5 vidas, ele não é capaz de reduzir o grupo de palavras o suficiente, perdendo antes de ser capaz de achar a letra faltante (letra de pouca probabilidade).
 
-Agora vamos utilizar um exemplo:
+## Exemplos
 
 Nesse caso a palavra errada é `fixasses`.
 Olhando para a mesma, a letra que mais chama a atenção por conta de sua ausência é a letra `X`, e é justamente ela que deu trabalho a nosso jogador, mas não pelo motivo que pensa. Ele foi capaz de chegar até `fi_asses` tendo errado as letras: 'r','o','m','c' e 'l', com isso quando restou apenas uma letra na palavra a chance era a mesma para todas as letras que poderiam preencher porém podemos imaginar que ele provavelmente optou por `c` e `l` em vez de `x` devido a como nosso algorítimo foi implementado, aonde quando a probabilidade é a mesma ele opta pela ordem alfabética, errando assim apenas por que todas as letras possíveis tinha mesmas chances e então ele escolheu por ordem alfabética.
